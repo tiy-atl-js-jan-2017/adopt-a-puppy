@@ -7,9 +7,28 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
+  <body ng-app="app">
     <div class="container">
-      <p>Welcome to your life.</p>
+      <div ng-controller="ShelterController">
+        <h4>Add a new Shelter</h4>
+        <form ng-submit="addShelter(shelter)">
+          <p class="control">
+            <input type="text" placeholder="Name"
+                   ng-model="shelter.name" />
+          </p>
+
+          <p class="control">
+            <input type="text" placeholder="Location"
+                   ng-model="shelter.location" />
+          </p>
+          <p class="control">
+            <button class="button is-primary">Create</button>
+          </p>
+        </form>
+      </div>
+
+      <div ng-controller="AnimalController">
+      </div>
     </div>
     <script src="js/bundle.js"></script>
   </body>
