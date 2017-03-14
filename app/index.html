@@ -31,6 +31,54 @@
       </div>
 
       <div ng-controller="AnimalController">
+        <h4>Add a Puppy!!!</h4>
+        <form ng-submit="addPuppy(pup, shelterId)">
+          <p class="control">
+            <input type="text" placeholder="Name"
+                   ng-model="pup.name" />
+          </p>
+          <p class="control">
+            <input type="text" placeholder="Breed"
+                   ng-model="pup.breed" />
+          </p>
+          <p class="control">
+            <input type="text" placeholder="http://cute-puppy.jpg"
+                   ng-model="pup.photoUrl" />
+          </p>
+          <p class="control">
+            <input type="text" placeholder="shelterId"value=""
+                   ng-model="shelterId" />
+          </p>
+          <p class="control">
+            <button class="button is-primary">Create</button>
+          </p>
+        </form>
+
+        <p ng-show="currentPuppy">{{ currentPuppy.name }} has baeen put up for adoption. Thank you!</p>
+
+        <div>
+          <h4>Puppies for Adoption at Harmony Grove</h4>
+          <ul class="puppies">
+            <li ng-repeat="puppy in puppies">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="{{ puppy.photoUrl }}" alt="Image">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4">{{ puppy.name }}</p>
+                      <p class="subtitle is-6">{{ puppy.breed }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
     <script src="js/bundle.js"></script>
