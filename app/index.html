@@ -10,6 +10,7 @@
   <body ng-app="app">
     <div class="container">
       <div ng-controller="ShelterController">
+
         <h4>Add a new Shelter</h4>
         <form ng-submit="addShelter(shelter)">
           <p class="control">
@@ -25,6 +26,8 @@
             <button class="button is-primary">Create</button>
           </p>
         </form>
+        <p ng-show="currentShelter">Your Shelter Id is {{ currentShelter.id }}.</p>
+
       </div>
 
       <div ng-controller="AnimalController">
