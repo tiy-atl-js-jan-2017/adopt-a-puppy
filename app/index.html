@@ -16,7 +16,7 @@
         <a class="nav-item" href="#!/home">
           Home
         </a>
-        <a class="nav-item" href="#!/shelters">
+        <a class="nav-item" href="#!/shelters/new">
           Shelters
         </a>
         <a class="nav-item" href="#!/puppies">
@@ -25,27 +25,6 @@
       </div>
     </nav>
     <div class="container" ui-view>
-      <div ng-controller="ShelterController">
-
-        <h4>Add a new Shelter</h4>
-        <form ng-submit="addShelter(shelter)">
-          <p class="control">
-            <input type="text" placeholder="Name"
-                   ng-model="shelter.name" />
-          </p>
-
-          <p class="control">
-            <input type="text" placeholder="Location"
-                   ng-model="shelter.location" />
-          </p>
-          <p class="control">
-            <button class="button is-primary">Create</button>
-          </p>
-        </form>
-        <p ng-show="currentShelter">Your Shelter Id is {{ currentShelter.id }}.</p>
-
-      </div>
-
       <div ng-controller="AnimalController">
         <h4>Add a Puppy!!!</h4>
         <form ng-submit="addPuppy(pup, shelterId)">
