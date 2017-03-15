@@ -16,38 +16,12 @@
         <a class="nav-item" href="#!/shelters/new">
           Add Shelter
         </a>
-        <a class="nav-item" href="#!/puppies/new">
+        <a class="nav-item" href="#!/animals/new">
           Add Puppy
         </a>
       </div>
     </nav>
     <div class="container" ui-view>
-      <div ng-controller="AnimalController">
-        <h4>Add a Puppy!!!</h4>
-        <form ng-submit="addPuppy(pup, shelterId)">
-          <p class="control">
-            <input type="text" placeholder="Name"
-                   ng-model="pup.name" />
-          </p>
-          <p class="control">
-            <input type="text" placeholder="Breed"
-                   ng-model="pup.breed" />
-          </p>
-          <p class="control">
-            <input type="text" placeholder="http://cute-puppy.jpg"
-                   ng-model="pup.photoUrl" />
-          </p>
-          <p class="control">
-            <input type="text" placeholder="shelterId"value=""
-                   ng-model="shelterId" />
-          </p>
-          <p class="control">
-            <button class="button is-primary">Create</button>
-          </p>
-        </form>
-
-        <p ng-show="currentPuppy">{{ currentPuppy.name }} has baeen put up for adoption. Thank you!</p>
-      </div>
     </div>
     <script src="js/bundle.js"></script>
   </body>

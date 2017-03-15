@@ -13,6 +13,11 @@ function Config ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/shelter-add.tpl.html',
       controller: 'ShelterController'
     })
+    .state('animals-new', {
+      url: '/animals/new',
+      templateUrl: 'templates/animals-add.tpl.html',
+      controller: 'AnimalAddController'
+    })
     .state('animals', {
       url: '/shelters/:id/animals',
       templateUrl: 'templates/animals-list.tpl.html',
