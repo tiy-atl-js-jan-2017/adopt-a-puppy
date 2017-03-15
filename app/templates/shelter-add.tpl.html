@@ -1,0 +1,15 @@
+<h4>Add a new Shelter</h4>
+<form ng-submit="addShelter(shelter)">
+  <p class="control">
+    <input type="text" placeholder="Name"
+           ng-model="shelter.name" />
+  </p>
+
+  <p class="control">
+    <input type="text" placeholder="Location"
+           ng-model="shelter.location" />
+  </p>
+  <p class="control">
+    <button class="button is-primary">Create</button>
+  </p>
+</form>
