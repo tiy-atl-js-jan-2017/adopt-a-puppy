@@ -13,9 +13,10 @@ function Config ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/shelter-add.tpl.html',
       controller: 'ShelterController'
     })
-    .state('shelter', {
-      url: '/shelters',
-      template: `<h1>Shelters are cool cause animals are cool.</h1>`
+    .state('animals', {
+      url: '/shelters/:id/animals',
+      templateUrl: 'templates/animals-list.tpl.html',
+      controller: 'AnimalController'
     })
     .state('page-not-found', {
       url: '/not-found',

@@ -1,12 +1,14 @@
 const SERVER_URL = "https://enigmatic-cliffs-77454.herokuapp.com";
 
-function AnimalController ($scope, $http) {
+function AnimalController ($scope, $http, $stateParams) {
   console.log("Welcome to Animal controller");
   $scope.currentPuppy = null;
   $scope.puppies = [];
 
   function init () {
-    $http.get(`${SERVER_URL}/shelters/1`).then(resp => {
+    var shelterId = $stateParams.id;
+    var url = `${SERVER_URL}/shelters/${shelterId}`;
+    $http.get(url).then(resp => {
       $scope.puppies = resp.data;
     });
   }
@@ -25,6 +27,6 @@ function AnimalController ($scope, $http) {
 
 }
 
-AnimalController.$inject = ['$scope', '$http'];
+AnimalController.$inject = ['$scope', '$http', '$stateParams'];
 
 export default AnimalController;

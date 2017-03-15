@@ -10,17 +10,14 @@
   <body ng-app="app">
     <nav>
       <div class="nav-right nav-menu">
-        <a class="nav-item" href="/">
-          Everything
-        </a>
         <a class="nav-item" href="#!/home">
           Home
         </a>
         <a class="nav-item" href="#!/shelters/new">
-          Shelters
+          Add Shelter
         </a>
-        <a class="nav-item" href="#!/puppies">
-          Puppies
+        <a class="nav-item" href="#!/puppies/new">
+          Add Puppy
         </a>
       </div>
     </nav>
@@ -50,30 +47,6 @@
         </form>
 
         <p ng-show="currentPuppy">{{ currentPuppy.name }} has baeen put up for adoption. Thank you!</p>
-
-        <div>
-          <h4>Puppies for Adoption at Harmony Grove</h4>
-          <ul class="puppies">
-            <li ng-repeat="puppy in puppies">
-              <div class="card">
-                <div class="card-image">
-                  <figure class="image">
-                    <img src="{{ puppy.photoUrl }}" alt="Image">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">{{ puppy.name }}</p>
-                      <p class="subtitle is-6">{{ puppy.breed }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
       </div>
     </div>
     <script src="js/bundle.js"></script>
