@@ -1,0 +1,22 @@
+<h4 class="title">Add a Puppy!!!</h4>
+<form ng-submit="addPuppy(pup, shelterId)">
+  <p class="control">
+    <input type="text" placeholder="Name"
+           ng-model="pup.name" />
+  </p>
+  <p class="control">
+    <input type="text" placeholder="Breed"
+           ng-model="pup.breed" />
+  </p>
+  <p class="control">
+    <input type="text" placeholder="http://cute-puppy.jpg"
+           ng-model="pup.photoUrl" />
+  </p>
+  <p class="control">
+    <input type="text" placeholder="shelterId"
+           ng-model="shelterId" />
+  </p>
+  <p class="control">
+    <button class="button is-primary">Create</button>
+  </p>
+</form>
