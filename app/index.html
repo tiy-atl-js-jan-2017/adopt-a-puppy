@@ -8,10 +8,23 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body ng-app="app">
-    <div ui-view>
-    </div>
-
-    <div class="container">
+    <nav>
+      <div class="nav-right nav-menu">
+        <a class="nav-item" href="/">
+          Everything
+        </a>
+        <a class="nav-item" href="#!/home">
+          Home
+        </a>
+        <a class="nav-item" href="#!/shelters">
+          Shelters
+        </a>
+        <a class="nav-item" href="#!/puppies">
+          Puppies
+        </a>
+      </div>
+    </nav>
+    <div class="container" ui-view>
       <div ng-controller="ShelterController">
 
         <h4>Add a new Shelter</h4>
