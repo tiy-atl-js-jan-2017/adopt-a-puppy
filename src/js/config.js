@@ -5,7 +5,8 @@ function Config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      template: '<h1>Hello World</h1>'
+      templateUrl: 'templates/shelter-list.tpl.html',
+      controller: 'ShelterController'
     })
     .state('shelter-new', {
       url: '/shelters/new',

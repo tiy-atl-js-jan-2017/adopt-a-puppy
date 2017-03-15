@@ -1,0 +1,16 @@
+<h2 class="title">Awesome Animal Shelters</h2>
+
+<table class="table is-narrow">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="shelter in shelters">
+      <td>{{ shelter.name }}</td>
+      <td>{{ shelter.location }}</td>
+    </tr>
+  </tbody>
+</table>
