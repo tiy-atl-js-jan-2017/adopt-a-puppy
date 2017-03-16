@@ -9,11 +9,11 @@
     <a class="nav-item" href="#!/animals/new">
       Add Puppy
     </a>
-    <a class="nav-item" href="#!/sign-up">
-      Sign Up
+    <a class="nav-item" href="#!/sign-up" ng-hide="loggedIn">
+      Sign Up / Sign In
     </a>
-    <a class="nav-item" href="#!/sign-in">
-      Sign In
+    <a class="nav-item" ng-show="loggedIn" ng-click="signOut()">
+      Sign Out
     </a>
   </div>
 </nav>

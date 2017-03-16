@@ -3,7 +3,8 @@ function Config ($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('root', {
       abstract: true,
-      templateUrl: 'templates/layout.tpl.html'
+      templateUrl: 'templates/layout.tpl.html',
+      controller: 'LayoutController'
     })
     .state('root.signup', {
       url: '/sign-up',
