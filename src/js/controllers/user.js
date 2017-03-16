@@ -1,5 +1,7 @@
-function UserController ($scope, $http, SERVER) {
+function UserController ($scope, $http, SERVER, $cookies, $state) {
   $scope.notifications = [];
+
+  console.log($cookies);
 
   $scope.removeMsg = (msg) => {
     var removed = $scope.notifications.filter(x => x != msg);
@@ -15,8 +17,19 @@ function UserController ($scope, $http, SERVER) {
     });
   };
 
+  $scope.signIn = (user) => {
+    $http.post(`${SERVER}/login`, user).then(resp => {
+      console.log(resp.data);
+      $cookies.put('access-token', resp.data.token);
+      $state.go('root.home');
+    }).catch(error => {
+      console.log(error);
+      $scope.notifications.push(error.data.message);
+    });
+  };
+
 }
 
-UserController.$inject = ['$scope', '$http', 'SERVER'];
+UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state'];
 
 export default UserController;
