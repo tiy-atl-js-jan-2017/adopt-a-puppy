@@ -1,11 +1,8 @@
-const SERVER_URL = "https://enigmatic-cliffs-77454.herokuapp.com";
-
-function ShelterController ($scope, $http, $state) {
-  console.log("Welcome to Shelter controller");
+function ShelterController ($scope, $http, $state, SERVER) {
   $scope.shelters = [];
 
   function init () {
-    $http.get(`${SERVER_URL}/shelters`).then(resp => {
+    $http.get(`${SERVER}/shelters`).then(resp => {
       $scope.shelters = resp.data;
     });
   }
@@ -13,12 +10,12 @@ function ShelterController ($scope, $http, $state) {
   init();
 
   $scope.addShelter = function (data) {
-    $http.post(`${SERVER_URL}/shelters`, data).then(resp => {
-      $state.go('home');
+    $http.post(`${SERVER}/shelters`, data).then(resp => {
+      $state.go('root.home');
     });
   };
 }
 
-ShelterController.$inject = ['$scope', '$http', '$state'];
+ShelterController.$inject = ['$scope', '$http', '$state', 'SERVER'];
 
 export default ShelterController;

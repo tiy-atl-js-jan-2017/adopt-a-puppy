@@ -1,24 +1,26 @@
 function Config ($stateProvider, $urlRouterProvider) {
-  console.log($stateProvider);
-  console.log($urlRouterProvider);
 
   $stateProvider
-    .state('home', {
+    .state('root', {
+      abstract: true,
+      templateUrl: 'templates/layout.tpl.html'
+    })
+    .state('root.home', {
       url: '/home',
       templateUrl: 'templates/shelter-list.tpl.html',
       controller: 'ShelterController'
     })
-    .state('shelter-new', {
+    .state('root.shelter-new', {
       url: '/shelters/new',
       templateUrl: 'templates/shelter-add.tpl.html',
       controller: 'ShelterController'
     })
-    .state('animals-new', {
+    .state('root.animals-new', {
       url: '/animals/new',
       templateUrl: 'templates/animals-add.tpl.html',
       controller: 'AnimalAddController'
     })
-    .state('animals', {
+    .state('root.animals', {
       url: '/shelters/:id/animals',
       templateUrl: 'templates/animals-list.tpl.html',
       controller: 'AnimalController'
