@@ -5,6 +5,11 @@ function Config ($stateProvider, $urlRouterProvider) {
       abstract: true,
       templateUrl: 'templates/layout.tpl.html'
     })
+    .state('root.signup', {
+      url: '/sign-up',
+      controller: 'UserController',
+      templateUrl: 'templates/sign-up.tpl.html'
+    })
     .state('root.home', {
       url: '/home',
       templateUrl: 'templates/shelter-list.tpl.html',
