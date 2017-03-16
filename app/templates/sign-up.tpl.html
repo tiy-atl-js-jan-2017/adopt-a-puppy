@@ -2,31 +2,57 @@
      class="notification is-primary">
   <button ng-click="removeMsg(msg)"
           class="delete"></button>
-  {{ msg }}
+  <p class="content">
+    {{ msg }}
+  </p>
 </div>
 
-<h4>Sign Up</h4>
+<div class="columns">
+  <div class="column">
+    <h4>Sign Up</h4>
 
-<form ng-submit="signUp(user)">
+    <form ng-submit="signUp(user)">
 
-  <p class="control">
-    <input type="text" placeholder="Name"
-           ng-model="user.name" />
-  </p>
-  <p class="control">
-    <input type="text" placeholder="Email"
-           ng-model="user.email" />
-  </p>
-  <p class="control">
-    <input type="password" placeholder="Password"
-           ng-model="user.password" />
-  </p>
-  <p class="control">
-    <input type="text" placeholder="Shelter Id"
-           ng-model="user.shelterId" />
-  </p>
+      <p class="control">
+        <input type="text" placeholder="Name"
+               ng-model="user.name" />
+      </p>
+      <p class="control">
+        <input type="text" placeholder="Email"
+               ng-model="user.email" />
+      </p>
+      <p class="control">
+        <input type="password" placeholder="Password"
+               ng-model="user.password" />
+      </p>
+      <p class="control">
+        <input type="text" placeholder="Shelter Id"
+               ng-model="user.shelterId" />
+      </p>
 
-  <p class="control">
-    <button class="button is-primary">Sign Up</button>
-  </p>
-</form>
+      <p class="control">
+        <button class="button is-primary">Sign Up</button>
+      </p>
+    </form>
+  </div>
+  <div class="column">
+    <h4>Sign In</h4>
+
+    <form ng-submit="signIn(login)">
+
+      <p class="control">
+        <input type="text" placeholder="Email"
+               ng-model="login.email" />
+      </p>
+      <p class="control">
+        <input type="password" placeholder="Password"
+               ng-model="login.password" />
+      </p>
+
+      <p class="control">
+        <button class="button is-primary">Sign In</button>
+      </p>
+    </form>
+  </div>
+</div>
+
