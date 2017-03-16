@@ -3,7 +3,7 @@ function AnimalAddController ($scope, $http, $state, SERVER) {
   $scope.addPuppy = function (data, shelterId) {
     var url = `${SERVER}/shelters/${shelterId}/animals`;
     $http.post(url, data).then(resp => {
-      $state.go('animals', { id: shelterId });
+      $state.go('root.animals', { id: shelterId });
     });
   };
 

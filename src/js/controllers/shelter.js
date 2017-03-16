@@ -11,7 +11,7 @@ function ShelterController ($scope, $http, $state, SERVER) {
 
   $scope.addShelter = function (data) {
     $http.post(`${SERVER}/shelters`, data).then(resp => {
-      $state.go('home');
+      $state.go('root.home');
     });
   };
 }
