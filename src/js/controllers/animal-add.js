@@ -1,21 +1,14 @@
-function AnimalAddController ($scope, $http, $state, SERVER, $cookies) {
+function AnimalAddController ($scope, $http, $state, SERVER) {
 
   $scope.addPuppy = function (data, shelterId) {
     var url = `${SERVER}/shelters/${shelterId}/animals`;
-    $http({
-      url: url,
-      method: 'POST',
-      headers: {
-        'access-token': $cookies.get('access-token')
-      },
-      data: data
-    }).then(resp => {
+    $http.post(url, data).then(resp => {
       $state.go('root.animals', { id: shelterId });
     });
   };
 
 };
 
-AnimalAddController.$inject = ['$scope', '$http', '$state', 'SERVER', '$cookies'];
+AnimalAddController.$inject = ['$scope', '$http', '$state', 'SERVER'];
 
 export default AnimalAddController;
