@@ -4,6 +4,7 @@ import 'angular-cookies';
 
 import AppConfig from './config';
 import SERVER from './server';
+import setup from './setup';
 
 import LayoutController from './controllers/layout';
 import AnimalController from './controllers/animal';
@@ -14,6 +15,7 @@ import UserController from './controllers/user';
 angular
   .module('app', ['ui.router', 'ngCookies'])
   .config(AppConfig)
+  .run(setup)
   .constant('SERVER', SERVER)
   .controller('LayoutController', LayoutController)
   .controller('UserController', UserController)
