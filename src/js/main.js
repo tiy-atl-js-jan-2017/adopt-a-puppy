@@ -6,7 +6,8 @@ import AppConfig from './config';
 import SERVER from './server';
 import setup from './setup';
 
-import AccountService from './services/api';
+import AccountService from './services/account';
+import AdoptionService from './services/adoption';
 
 import LayoutController from './controllers/layout';
 import AnimalController from './controllers/animal';
@@ -20,6 +21,7 @@ angular
   .run(setup)
   .constant('SERVER', SERVER)
   .service('AccountService', AccountService)
+  .service('AdoptionService', AdoptionService)
   .controller('LayoutController', LayoutController)
   .controller('UserController', UserController)
   .controller('ShelterController', ShelterController)
