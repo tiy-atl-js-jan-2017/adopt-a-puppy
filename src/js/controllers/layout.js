@@ -1,14 +1,14 @@
-function LayoutController ($scope, $rootScope, $cookies, $state, $http) {
+function LayoutController ($scope, $rootScope, $state, ApiService) {
 
   $scope.signOut = () => {
-    $rootScope.loggedIn = false;
-    $cookies.remove('access-token');
-    $http.defaults.headers.common['access-token'] = null;
-    $state.go('root.home');
+    ApiService.logout().then( () => {
+      $rootScope.loggedIn = false;
+      $state.go('root.home');
+    });
   };
 
 }
 
-LayoutController.$inject = ['$scope', '$rootScope', '$cookies', '$state', '$http'];
+LayoutController.$inject = ['$scope', '$rootScope', '$state', 'ApiService'];
 
 export default LayoutController;

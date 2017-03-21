@@ -12,6 +12,11 @@ function ApiService ($http, SERVER, $cookies) {
     });
   };
 
+  this.logout = () => {
+    $cookies.remove('access-token');
+    delete $http.defaults.headers.common['access-token'];
+  };
+
 };
 
 ApiService.$inject = ['$http', 'SERVER', '$cookies'];
