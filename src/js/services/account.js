@@ -1,4 +1,4 @@
-function ApiService ($http, SERVER, $cookies) {
+function AccountService ($http, SERVER, $cookies) {
 
   this.register = (user) => {
     return $http.post(`${SERVER}/users`, user);
@@ -19,6 +19,6 @@ function ApiService ($http, SERVER, $cookies) {
 
 };
 
-ApiService.$inject = ['$http', 'SERVER', '$cookies'];
+AccountService.$inject = ['$http', 'SERVER', '$cookies'];
 
-export default ApiService;
+export default AccountService;

@@ -1,4 +1,4 @@
-function UserController ($scope, $state, $rootScope, ApiService) {
+function UserController ($scope, $state, $rootScope, AccountService) {
   $scope.notifications = [];
 
   $scope.removeMsg = (msg) => {
@@ -7,7 +7,7 @@ function UserController ($scope, $state, $rootScope, ApiService) {
   };
 
   $scope.signUp = (user) => {
-    ApiService.register(user).then(resp => {
+    AccountService.register(user).then(resp => {
       var message = `Created new user: ${resp.data.name}`;
       $scope.notifications.push(message);
     }).catch(error => {
@@ -16,7 +16,7 @@ function UserController ($scope, $state, $rootScope, ApiService) {
   };
 
   $scope.signIn = (user) => {
-    ApiService.login(user).then(resp => {
+    AccountService.login(user).then(resp => {
       $rootScope.loggedIn = true;
       $state.go('root.home');
     }).catch(error => {
@@ -26,6 +26,6 @@ function UserController ($scope, $state, $rootScope, ApiService) {
 
 }
 
-UserController.$inject = ['$scope', '$state', '$rootScope', 'ApiService'];
+UserController.$inject = ['$scope', '$state', '$rootScope', 'AccountService'];
 
 export default UserController;

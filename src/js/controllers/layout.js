@@ -1,7 +1,7 @@
-function LayoutController ($scope, $rootScope, $state, ApiService) {
+function LayoutController ($scope, $rootScope, $state, AccountService) {
 
   $scope.signOut = () => {
-    ApiService.logout().then( () => {
+    AccountService.logout().then( () => {
       $rootScope.loggedIn = false;
       $state.go('root.home');
     });
@@ -9,6 +9,6 @@ function LayoutController ($scope, $rootScope, $state, ApiService) {
 
 }
 
-LayoutController.$inject = ['$scope', '$rootScope', '$state', 'ApiService'];
+LayoutController.$inject = ['$scope', '$rootScope', '$state', 'AccountService'];
 
 export default LayoutController;
