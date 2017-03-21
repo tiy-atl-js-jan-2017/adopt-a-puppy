@@ -6,6 +6,8 @@ import AppConfig from './config';
 import SERVER from './server';
 import setup from './setup';
 
+import ApiService from './services/api';
+
 import LayoutController from './controllers/layout';
 import AnimalController from './controllers/animal';
 import AnimalAddController from './controllers/animal-add';
@@ -17,6 +19,7 @@ angular
   .config(AppConfig)
   .run(setup)
   .constant('SERVER', SERVER)
+  .service('ApiService', ApiService)
   .controller('LayoutController', LayoutController)
   .controller('UserController', UserController)
   .controller('ShelterController', ShelterController)
