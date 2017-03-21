@@ -1,4 +1,4 @@
-function UserController ($scope, $state, $rootScope, AccountService) {
+function UserController ($scope, $state, AccountService) {
   $scope.notifications = [];
 
   $scope.removeMsg = (msg) => {
@@ -17,7 +17,7 @@ function UserController ($scope, $state, $rootScope, AccountService) {
 
   $scope.signIn = (user) => {
     AccountService.login(user).then(resp => {
-      $rootScope.loggedIn = true;
+      $scope.$emit('signedIn', {});
       $state.go('root.home');
     }).catch(error => {
       $scope.notifications.push(error.data.message);
@@ -26,6 +26,6 @@ function UserController ($scope, $state, $rootScope, AccountService) {
 
 }
 
-UserController.$inject = ['$scope', '$state', '$rootScope', 'AccountService'];
+UserController.$inject = ['$scope', '$state', 'AccountService'];
 
 export default UserController;
