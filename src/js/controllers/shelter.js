@@ -1,8 +1,8 @@
-function ShelterController ($scope, $http, $state, SERVER) {
+function ShelterController ($scope, $state, AdoptionService) {
   $scope.shelters = [];
 
   function init () {
-    $http.get(`${SERVER}/shelters`).then(resp => {
+    AdoptionService.listShelters().then(resp => {
       $scope.shelters = resp.data;
     });
   }
@@ -10,12 +10,12 @@ function ShelterController ($scope, $http, $state, SERVER) {
   init();
 
   $scope.addShelter = function (data) {
-    $http.post(`${SERVER}/shelters`, data).then(resp => {
+    AdoptionService.addShelter(data).then(resp => {
       $state.go('root.home');
     });
   };
 }
 
-ShelterController.$inject = ['$scope', '$http', '$state', 'SERVER'];
+ShelterController.$inject = ['$scope', '$state', 'AdoptionService'];
 
 export default ShelterController;

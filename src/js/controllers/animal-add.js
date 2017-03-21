@@ -1,14 +1,13 @@
-function AnimalAddController ($scope, $http, $state, SERVER) {
+function AnimalAddController ($scope, $state, AdoptionService) {
 
   $scope.addPuppy = function (data, shelterId) {
-    var url = `${SERVER}/shelters/${shelterId}/animals`;
-    $http.post(url, data).then(resp => {
+    AdoptionService.addAnimal(shelterId, data).then(resp => {
       $state.go('root.animals', { id: shelterId });
     });
   };
 
 };
 
-AnimalAddController.$inject = ['$scope', '$http', '$state', 'SERVER'];
+AnimalAddController.$inject = ['$scope', '$state', 'AdoptionService'];
 
 export default AnimalAddController;

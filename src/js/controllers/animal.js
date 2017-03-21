@@ -1,4 +1,4 @@
-function AnimalController ($scope, $http, $stateParams, SERVER) {
+function AnimalController ($scope, $stateParams, AdoptionService) {
   $scope.puppies = [];
   $scope.currentImg = "";
 
@@ -7,10 +7,7 @@ function AnimalController ($scope, $http, $stateParams, SERVER) {
   };
 
   function init () {
-    var shelterId = $stateParams.id;
-    console.log(SERVER);
-    var url = `${SERVER}/shelters/${shelterId}`;
-    $http.get(url).then(resp => {
+    AdoptionService.getShelter($stateParams.id).then(resp => {
       $scope.puppies = resp.data.Animals;
     });
   }
@@ -19,6 +16,6 @@ function AnimalController ($scope, $http, $stateParams, SERVER) {
 
 }
 
-AnimalController.$inject = ['$scope', '$http', '$stateParams', 'SERVER'];
+AnimalController.$inject = ['$scope', '$stateParams', 'AdoptionService'];
 
 export default AnimalController;
