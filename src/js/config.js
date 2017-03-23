@@ -29,7 +29,7 @@ function Config ($stateProvider, $urlRouterProvider) {
     .state('root.animals', {
       url: '/shelters/:id/animals',
       templateUrl: 'templates/animals-list.tpl.html',
-      controller: 'AnimalController'
+      controller: 'AnimalController as animalsVm'
     })
     .state('page-not-found', {
       url: '/not-found',

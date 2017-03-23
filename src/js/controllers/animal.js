@@ -1,14 +1,12 @@
-function AnimalController ($scope, $stateParams, AdoptionService) {
-  $scope.puppies = [];
-  $scope.currentImg = "";
+function AnimalController ($stateParams, AdoptionService) {
 
-  $scope.setImg = function (photo) {
-    $scope.currentImg = photo.photoUrl;
-  };
+  let vm = this;
+
+  vm.puppies = [];
 
   function init () {
     AdoptionService.getShelter($stateParams.id).then(resp => {
-      $scope.puppies = resp.data.Animals;
+      vm.puppies = resp.data.Animals;
     });
   }
 
@@ -16,6 +14,6 @@ function AnimalController ($scope, $stateParams, AdoptionService) {
 
 }
 
-AnimalController.$inject = ['$scope', '$stateParams', 'AdoptionService'];
+AnimalController.$inject = ['$stateParams', 'AdoptionService'];
 
 export default AnimalController;
