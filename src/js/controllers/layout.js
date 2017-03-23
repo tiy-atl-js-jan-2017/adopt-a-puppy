@@ -1,12 +1,17 @@
 function LayoutController ($scope, $state, AccountService) {
 
+  let vm = this;
+
+  vm.loggedIn = false;
+  vm.signOut = signOut;
+
   $scope.$on('signedIn', (event, data) => {
     console.log("inside signed in event handler");
     console.log("got some data: ", data);
-    $scope.loggedIn = true;
+    vm.loggedIn = true;
   });
 
-  $scope.signOut = () => {
+  function signOut () {
     AccountService.logout().then( () => {
       $state.go('root.home');
     });

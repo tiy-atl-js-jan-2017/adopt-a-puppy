@@ -1,26 +1,32 @@
 function UserController ($scope, $state, AccountService) {
-  $scope.notifications = [];
 
-  $scope.removeMsg = (msg) => {
-    var removed = $scope.notifications.filter(x => x != msg);
-    $scope.notifications = removed;
+  let vm = this;
+
+  vm.notifications = [];
+  vm.removeMsg = removeMsg;
+  vm.signUp = signUp;
+  vm.signIn = signIn;
+
+  function removeMsg (msg) {
+    var removed = vm.notifications.filter(x => x != msg);
+    vm.notifications = removed;
   };
 
-  $scope.signUp = (user) => {
+  function signUp (user) {
     AccountService.register(user).then(resp => {
       var message = `Created new user: ${resp.data.name}`;
-      $scope.notifications.push(message);
+      vm.notifications.push(message);
     }).catch(error => {
       console.log(error);
     });
   };
 
-  $scope.signIn = (user) => {
+  function signIn (user) {
     AccountService.login(user).then(resp => {
       $scope.$emit('signedIn', {});
       $state.go('root.home');
     }).catch(error => {
-      $scope.notifications.push(error.data.message);
+      vm.notifications.push(error.data.message);
     });
   };
 

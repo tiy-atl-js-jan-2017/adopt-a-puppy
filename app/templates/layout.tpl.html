@@ -3,16 +3,16 @@
     <a class="nav-item" href="#!/home">
       Home
     </a>
-    <a class="nav-item" href="#!/shelters/new" ng-show="loggedIn">
+    <a class="nav-item" href="#!/shelters/new" ng-show="layoutVm.loggedIn">
       Add Shelter
     </a>
-    <a class="nav-item" href="#!/animals/new" ng-show="loggedIn">
+    <a class="nav-item" href="#!/animals/new" ng-show="layoutVm.loggedIn">
       Add Puppy
     </a>
-    <a class="nav-item" href="#!/sign-up" ng-hide="loggedIn">
+    <a class="nav-item" href="#!/sign-up" ng-hide="layoutVm.loggedIn">
       Sign Up / Sign In
     </a>
-    <a class="nav-item" ng-show="loggedIn" ng-click="signOut()">
+    <a class="nav-item" ng-show="loggedIn" ng-click="layoutVm.signOut()">
       Sign Out
     </a>
   </div>

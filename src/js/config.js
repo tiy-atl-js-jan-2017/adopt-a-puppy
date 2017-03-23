@@ -4,12 +4,12 @@ function Config ($stateProvider, $urlRouterProvider) {
     .state('root', {
       abstract: true,
       templateUrl: 'templates/layout.tpl.html',
-      controller: 'LayoutController'
+      controller: 'LayoutController as layoutVm'
     })
     .state('root.signup', {
       url: '/sign-up',
-      controller: 'UserController',
-      templateUrl: 'templates/sign-up.tpl.html'
+      templateUrl: 'templates/sign-up.tpl.html',
+      controller: 'UserController as usersVm'
     })
     .state('root.home', {
       url: '/home',
