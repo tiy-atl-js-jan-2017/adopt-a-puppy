@@ -1,18 +1,25 @@
 function AdoptionService ($http, SERVER) {
 
-  this.listShelters = () => {
+  let service = this;
+
+  service.listShelters = listShelters;
+  service.addShelter = addShelter;
+  service.getShelter = getShelter;
+  service.addAnimal = addAnimal;
+
+  function listShelters () {
     return $http.get(`${SERVER}/shelters`);
   };
 
-  this.addShelter = (data) => {
+  function addShelter (data) {
     return $http.post(`${SERVER}/shelters`, data);
   };
 
-  this.getShelter = (id) => {
+  function getShelter (id) {
     return $http.get(`${SERVER}/shelters/${id}`);
   };
 
-  this.addAnimal = (shelterId, data) => {
+  function addAnimal (shelterId, data) {
     var url = `${SERVER}/shelters/${shelterId}/animals`;
     return $http.post(url, data);
   };
