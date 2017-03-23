@@ -1,6 +1,10 @@
-function AnimalAddController ($scope, $state, AdoptionService) {
+function AnimalAddController ($state, AdoptionService) {
 
-  $scope.addPuppy = function (data, shelterId) {
+  let vm = this;
+
+  vm.addPuppy = addPuppy;
+
+  function addPuppy (data, shelterId) {
     AdoptionService.addAnimal(shelterId, data).then(resp => {
       $state.go('root.animals', { id: shelterId });
     });
@@ -8,6 +12,6 @@ function AnimalAddController ($scope, $state, AdoptionService) {
 
 };
 
-AnimalAddController.$inject = ['$scope', '$state', 'AdoptionService'];
+AnimalAddController.$inject = ['$state', 'AdoptionService'];
 
 export default AnimalAddController;

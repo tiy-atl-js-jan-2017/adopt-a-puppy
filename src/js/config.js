@@ -24,7 +24,7 @@ function Config ($stateProvider, $urlRouterProvider) {
     .state('root.animals-new', {
       url: '/animals/new',
       templateUrl: 'templates/animals-add.tpl.html',
-      controller: 'AnimalAddController'
+      controller: 'AnimalAddController as animalsAddVm'
     })
     .state('root.animals', {
       url: '/shelters/:id/animals',
