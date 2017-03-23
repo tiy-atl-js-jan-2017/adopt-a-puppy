@@ -1,3 +1,7 @@
+<p>
+  Here is our controller: {{ sheltersVm.message }}
+</p>
+
 <h2 class="title">Awesome Animal Shelters</h2>
 
 <table class="table is-narrow">
@@ -8,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="shelter in shelters">
+    <tr ng-repeat="shelter in sheltersVm.shelters">
       <td>
         <a href="#!/shelters/{{ shelter.id }}/animals">
           {{ shelter.name }}

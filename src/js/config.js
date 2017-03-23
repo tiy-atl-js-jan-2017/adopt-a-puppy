@@ -14,12 +14,12 @@ function Config ($stateProvider, $urlRouterProvider) {
     .state('root.home', {
       url: '/home',
       templateUrl: 'templates/shelter-list.tpl.html',
-      controller: 'ShelterController'
+      controller: 'ShelterController as sheltersVm'
     })
     .state('root.shelter-new', {
       url: '/shelters/new',
       templateUrl: 'templates/shelter-add.tpl.html',
-      controller: 'ShelterController'
+      controller: 'ShelterController as sheltersVm'
     })
     .state('root.animals-new', {
       url: '/animals/new',
